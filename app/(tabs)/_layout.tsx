@@ -1,45 +1,50 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { Tabs } from "expo-router"
+import Ionicons from "@expo/vector-icons/Ionicons"
+import { useColorScheme } from "react-native";
+import config from "@/tamagui.config";
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+const Layout = () => {
+  const scheme = useColorScheme();
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+  return <>
+    <ThemeProvider value={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <Tabs
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: scheme === 'dark' ? config.themes.dark.color.val : config.themes.light.color.val
         }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: "Home",
+            tabBarIcon: ({ color, focused }) => {
+              return <Ionicons
+                name={focused ? "home-sharp" : "home"}
+                color={color}
+                size={24}
+              />
+            },
+          }}
+        />
+
+        <Tabs.Screen
+          name="game"
+          options={{
+            title: "Play",
+            tabBarIcon: ({ color, focused }) => {
+              return <Ionicons
+                name={focused ? "game-controller-sharp" : "game-controller"}
+                color={color}
+                size={24}
+              />
+            },
+          }}
+        />
+      </Tabs>
+    </ThemeProvider>
+  </>;
 }
+
+export default Layout
