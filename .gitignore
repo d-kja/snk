@@ -5,3 +5,11 @@ node_modules
 mobile/.expo
 mobile/ios
 mobile/android
+
+wasm/target
+**/*.rs.bk
+wasm/Cargo.lock
+wasm/bin/
+wasm/pkg/
+wasm/wasm-pack.log
+
