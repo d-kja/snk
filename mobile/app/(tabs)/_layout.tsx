@@ -3,6 +3,8 @@ import Ionicons from "@expo/vector-icons/Ionicons"
 import { useColorScheme } from "react-native";
 import config from "@/tamagui.config";
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
+import { navigationStyles } from "@/components/navigation/styles";
+import { NavigationIcon } from "@/components/navigation/icon";
 
 const Layout = () => {
   const scheme = useColorScheme();
@@ -12,16 +14,23 @@ const Layout = () => {
       <Tabs
         screenOptions={{
           headerShown: false,
-          tabBarActiveTintColor: scheme === 'dark' ? config.themes.dark.color.val : config.themes.light.color.val
+          tabBarStyle: navigationStyles.navigation,
+          tabBarActiveTintColor: scheme === 'dark' ? config.themes.dark.color.val : config.themes.light.color.val,
+          tabBarButton: (props) => {
+            const isFocused = props.accessibilityState?.selected ?? false
+
+            return <NavigationIcon focused={isFocused} {...props} />
+          },
+          tabBarShowLabel: false,
         }}
       >
         <Tabs.Screen
           name="index"
           options={{
-            title: "Home",
+            title: "Play",
             tabBarIcon: ({ color, focused }) => {
               return <Ionicons
-                name={focused ? "home-sharp" : "home"}
+                name={focused ? "game-controller-sharp" : "game-controller"}
                 color={color}
                 size={24}
               />
@@ -30,12 +39,12 @@ const Layout = () => {
         />
 
         <Tabs.Screen
-          name="game"
+          name="about"
           options={{
-            title: "Play",
+            title: "About",
             tabBarIcon: ({ color, focused }) => {
               return <Ionicons
-                name={focused ? "game-controller-sharp" : "game-controller"}
+                name={focused ? "newspaper-sharp" : "newspaper"}
                 color={color}
                 size={24}
               />
@@ -48,3 +57,5 @@ const Layout = () => {
 }
 
 export default Layout
+
+
