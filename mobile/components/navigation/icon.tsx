@@ -1,7 +1,7 @@
 import type { BottomTabBarButtonProps } from "@react-navigation/bottom-tabs";
-import { NavigationButton } from "./styles";
-import { View } from "tamagui";
 import { memo } from "react";
+import { View } from "tamagui";
+import { NavigationButton } from "./styles";
 
 interface NavigationIconProps
 	extends Omit<
