@@ -1,10 +1,13 @@
-import config from "@/tamagui.config";
 import { TamaguiProvider } from "tamagui";
 import { SplashScreen, Stack } from "expo-router"
+import { StatusBar } from "expo-status-bar"
+
 import { useFonts } from "expo-font"
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
-import { StatusBar } from "expo-status-bar"
+
+import config from "@/tamagui.config";
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 
 SplashScreen.preventAutoHideAsync()
 
@@ -24,9 +27,12 @@ function RootLayout() {
   if (!fontsLoaded) return null
 
   return <TamaguiProvider config={config} defaultTheme={scheme ?? "dark"}>
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-    </Stack>
+    <ThemeProvider value={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="games/snake-game" options={{ headerShown: false }} />
+      </Stack>
+    </ThemeProvider>
 
     <StatusBar style="auto" />
   </TamaguiProvider>;

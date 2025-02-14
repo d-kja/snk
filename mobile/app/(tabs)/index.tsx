@@ -1,3 +1,3 @@
-import { GamePage } from "../../pages/game";
+import { GamePage } from "@/pages/game";
 
 export default GamePage

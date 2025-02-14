@@ -8,6 +8,9 @@
       ],
       "@pages/*": [
         "pages/*"
+      ],
+      "@components/*": [
+        "components/*"
       ]
     }
   },
