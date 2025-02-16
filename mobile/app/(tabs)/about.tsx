@@ -1,3 +1,7 @@
-import { HomePage } from "@/pages/home/index";
+import { AboutPage } from "@/pages/about/index";
 
-export default HomePage;
+const Page = () => {
+	return <AboutPage />;
+};
+
+export default Page;

@@ -6,6 +6,7 @@ import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 
+import { StoreProvider } from "@/stores";
 import config from "@/tamagui.config";
 import {
 	DarkTheme,
@@ -33,13 +34,20 @@ function RootLayout() {
 	return (
 		<TamaguiProvider config={config} defaultTheme={scheme ?? "dark"}>
 			<ThemeProvider value={scheme === "dark" ? DarkTheme : DefaultTheme}>
-				<Stack>
-					<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-					<Stack.Screen
-						name="games/snake-game"
-						options={{ headerShown: false }}
-					/>
-				</Stack>
+				<StoreProvider>
+					<Stack>
+						<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+
+						<Stack.Screen
+							name="games/snake-game"
+							options={{ headerShown: false, title: "Game" }}
+						/>
+						<Stack.Screen
+							name="user/index"
+							options={{ headerShown: false, title: "Player" }}
+						/>
+					</Stack>
+				</StoreProvider>
 			</ThemeProvider>
 
 			<StatusBar style="auto" />

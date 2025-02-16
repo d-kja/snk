@@ -1,3 +1,7 @@
-import { GamePage } from "@/pages/game";
+import { HomePage } from "@/pages/home";
 
-export default GamePage;
+const Page = () => {
+	return <HomePage />;
+};
+
+export default Page;

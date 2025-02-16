@@ -1,5 +1,6 @@
+import { Image as ImageRaw } from "expo-image";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { H1, Text as TText, styled } from "tamagui";
+import { View, styled } from "tamagui";
 
 export const Container = styled(SafeAreaView, {
 	backgroundColor: "$background",
@@ -8,19 +9,38 @@ export const Container = styled(SafeAreaView, {
 	flexDirection: "column",
 	flex: 1,
 
-	gap: 12,
+	justifyContent: "flex-start",
+	alignItems: "center",
 
 	paddingVertical: 32,
-	paddingHorizontal: 24,
 });
 
-export const Header = styled(H1, {
-	fontSize: "$7",
-	lineHeight: "$8",
+export const ImageContainer = styled(View, {
+	position: "relative",
+
+	display: "flex",
+	flexDirection: "column",
+	flex: 1,
+
+	maxHeight: "65%",
+	maxWidth: "97.25%",
+	width: "100%",
+
+	justifyContent: "center",
+	alignItems: "center",
+
+	borderColor: "$backgroundFocus",
+	borderWidth: 4,
+	borderRadius: 12,
+
+	boxShadow: "0px 4px 24px 0px",
+	shadowColor: "$color.gray3Dark",
+	shadowOpacity: 1,
 });
 
-export const Text = styled(TText, {
-	color: "$color11",
-	letterSpacing: "$11",
-	textWrap: "pretty",
+export const Image = styled(ImageRaw, {
+	position: "absolute",
+	inset: 0,
+
+	borderRadius: 12,
 });
