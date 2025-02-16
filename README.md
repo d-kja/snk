@@ -2,9 +2,11 @@
 
   <h1><code>snk</code></h1>
 
-  <strong>A React Native app with <a href="#">Expo</a>.</strong>
+  <strong>A React Native app with <a href="#">Expo</a>.</strong> <br/>
   <sub>Built with a mix of techs and languages...</sub>
 </div>
+
+<br/>
 
 ## About
 
