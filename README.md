@@ -9,7 +9,15 @@ I just want to scale it up and play with native as much as possible.
 
 Some refs so that I can have some UI ideas:
 
-- [home page ref?](https://dribbble.com/shots/25485234-Online-Movie-App-Mobile-UI-UX)
+## POSSIBLE REFS?
+
+Just a bunch of cool UIs, I'm using some of them as inspiration... and saving them here for my own reference
+
+- [ref?](https://dribbble.com/shots/25485234-Online-Movie-App-Mobile-UI-UX)
+- [ref](https://dribbble.com/shots/25633243-UI-UX-Mobile-App-Design-for-EkW-EV-Charging-App)
+- [ref](https://dribbble.com/shots/11955919-Minimal-calendar-app)
+- [ref](https://dribbble.com/shots/10879280-Coding-app-interaction-design)
+- [ref](https://dribbble.com/shots/25533895-Live-Streaming-Mobile-App)
 - [simplified but nice](https://www.behance.net/gallery/192232421/Swipe-Drinks-UI-UX-Mobile-App-Orbix-Studio)
 
 - [animations lib](https://blog.bitsrc.io/top-5-animation-libraries-in-react-native-d00ec8ddfc8d) // f u framer motion...
